@@ -1,0 +1,72 @@
+/* import logo from './logo.svg'; */
+import { useState, useEffect } from 'react';
+import './App.css';
+
+/* function App() { */
+
+  const name = '';
+  const isNameShowing = true;
+
+  /*component is whole block of code.  props is short for property, used to reference or change component??*/
+  const Person = (props) => {    
+    return (
+      <>
+        <h1>Name: {props.name}</h1>
+        <h2>Last Name: {props.lastName}</h2>
+        <h2>Age: {props.edad}</h2>
+      </>
+    )
+    } /*can use "" or '' for passing string, dynamic expression need {2 + 2}*/
+
+    /* react state?? in react plain js object used by react to represent a pice of info about the components current situation. Managed by the component */
+
+    /* in react useState, useEffect is a HOOK?? */
+    /* EVENT: an event is an action that can be triggered as a result of user action, e.g. mouseclick or button press */            
+    /* callback funtion is what makes the button work */
+const App = () => {
+  const [counter, setCounter] = useState(0);
+  /* use set for second variable to accompy first variable */
+
+  useEffect(() => {
+    setCounter(100);
+  }, []);
+  return (
+    <div className="App">
+      <h1>Boogie on down {name} </h1>
+      <h1>{isNameShowing ? name : 'someone'}!</h1>
+      {name ? (
+        <>
+          test
+        </>
+      ) : (
+        <>
+          <h1>test</h1>
+          <h2>There is no name</h2>
+        </>
+      )}
+      <Person 
+        name='John' 
+        lastName='Da Baptist'   
+        edad={'Many Moons'} />  
+      
+      <Person name='Jose' lastName='H Crysto'   edad={'Before the Sun'} />
+      
+      <Person />
+    
+      <h4>0 is where we start. where shall we go from here??</h4>
+      <button onClick={() => alert('clicked')}>DON'T PUSH UNLESS YOU WANT AN ALERT!!</button>
+      <p></p>
+      <button onClick={() => setCounter(-5)}> -5 ButtOUN</button>
+      <p></p>
+      <button onClick={() => setCounter((prevCount) => prevCount - 1)}> -</button>
+      
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount) => prevCount + 1)}> + </button>
+    
+    </div>
+
+    
+  );
+}
+
+export default App;
